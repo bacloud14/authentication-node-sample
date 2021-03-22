@@ -16,12 +16,14 @@ var passport       = require('passport');
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 var request        = require('request');
 var handlebars     = require('handlebars');
+const dotenv       = require('dotenv');
 
+require('dotenv').config()
 // Define our constants, you will change these with your own
-const TWITCH_CLIENT_ID = '<YOUR CLIENT ID HERE>';
-const TWITCH_SECRET    = '<YOUR CLIENT SECRET HERE>';
-const SESSION_SECRET   = '<SOME SECRET HERE>';
-const CALLBACK_URL     = '<YOUR REDIRECT URL HERE>';  // You can run locally with - http://localhost:3000/auth/twitch/callback
+const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+const TWITCH_SECRET    = process.env.TWITCH_SECRET;
+const SESSION_SECRET   = process.env.SESSION_SECRET;
+const CALLBACK_URL     = process.env.CALLBACK_URL;
 
 // Initialize Express and middlewares
 var app = express();
